@@ -57,10 +57,10 @@ export default {
     border: 1px solid rgba(10, 23, 55, 0.1);
     border-radius: 5px;
     padding: 7px 18px;
-    font-family: Inter;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 0.9rem;
     line-height: 24px;
     text-align: center;
     letter-spacing: -0.006em;
@@ -68,12 +68,13 @@ export default {
 }
 
 .logo {
+    font-family: 'Inter', sans-serif;
     margin-bottom: 0px;
     margin-top: 20px;
     letter-spacing: -0.014em;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.1rem;
     line-height: 24px;
 }
 

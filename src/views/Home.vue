@@ -16,10 +16,14 @@
                 <div class="view-list"><ViewList /></div>
             </div>
         </div>
-        <div class="desgraca">
+        <div class="drinks-wrap">
             <div class="drinks-container">
                 <div class="img-container" v-for="drink in drinks">
                     <img class="img-drinks" :src="drink.strDrinkThumb" />
+                    <div class="descripition-card">
+                        <span class="drink-name">{{ drink.strDrink }}</span>
+                        <span class="drink-id">#{{ drink.idDrink }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,8 +34,7 @@
 import Header from '@/components/Header.vue';
 import ViewGrid from '@/components/ViewGrid.vue';
 import ViewList from '@/components/ViewList.vue';
-
-const axios = require('axios');
+import axios from 'axios';
 
 export default {
     components: {
@@ -50,7 +53,7 @@ export default {
         async getDrinks() {
             try {
                 const drinks = await axios.get(
-                    'https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a'
+                    'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
                 );
 
                 this.drinks = drinks.data.drinks;
@@ -86,17 +89,16 @@ export default {
 }
 
 .typography {
-    font-family: Inter;
-    font-style: normal;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 32px;
 }
 
 .result-message {
-    font-style: normal;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.18rem;
     line-height: 32px;
     letter-spacing: -0.019em;
     color: #9aa6ac;
@@ -131,17 +133,13 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 2px;
-    grid-template-areas:
-        '. . .'
-        '. . .'
-        '. . .';
-    width: 67%;
+    gap: 1px 1px;
+    width: 55%;
     height: auto;
     justify-content: center;
 }
 
-.desgraca {
+.drinks-wrap {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -154,5 +152,32 @@ export default {
 .img-drinks {
     width: 100%;
     height: auto;
+}
+
+.descripition-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: 1px solid rgba(10, 23, 55, 0.1);
+    padding: 20px 0px 40px 20px;
+}
+
+.drink-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    font-size: 0.95rem;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    color: #252c32;
+    padding: 4px;
+}
+
+.drink-id {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 24px;
+    letter-spacing: -0.014em;
+    color: #252c32;
 }
 </style>
