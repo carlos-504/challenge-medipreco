@@ -67,7 +67,7 @@
 import MenuToggle from '@/components/svg/MenuToggle.vue';
 import ArrowIcon from '@/components/svg/ArrowIcon.vue';
 import Button from '@/components/Button.vue';
-import axios from 'axios';
+import api from '@/services/api.js';
 
 export default {
     components: {
@@ -88,9 +88,7 @@ export default {
             try {
                 const id = this.$route.params.drinkId;
 
-                const drink = await axios.get(
-                    `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
-                );
+                const drink = await api.get(`/lookup.php?i=${id}`);
 
                 this.drink = drink.data.drinks[0];
                 this.drink.strAlcoholic = 'Não-alcoolico';

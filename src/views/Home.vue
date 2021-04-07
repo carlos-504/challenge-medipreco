@@ -34,7 +34,7 @@ import Header from '@/components/Header.vue';
 import ViewGrid from '@/components/svg/ViewGrid.vue';
 import ViewList from '@/components/svg/ViewList.vue';
 import CardDrinks from '@/components/CardDrinks.vue';
-import axios from 'axios';
+import api from '@/services/api.js';
 
 export default {
     components: {
@@ -53,9 +53,7 @@ export default {
     methods: {
         async getDrinks() {
             try {
-                const drinks = await axios.get(
-                    'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic'
-                );
+                const drinks = await api.get('/filter.php?a=Non_Alcoholic');
 
                 this.drinks = drinks.data.drinks;
             } catch (err) {
