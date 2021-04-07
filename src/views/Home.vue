@@ -18,13 +18,12 @@
         </div>
         <div class="drinks-wrap">
             <div class="drinks-container">
-                <div class="img-container" v-for="drink in drinks">
-                    <img class="img-drinks" :src="drink.strDrinkThumb" />
-                    <div class="descripition-card">
-                        <span class="drink-name">{{ drink.strDrink }}</span>
-                        <span class="drink-id">#{{ drink.idDrink }}</span>
-                    </div>
-                </div>
+                <CardDrinks
+                    v-for="drink in drinks"
+                    :url="drink.strDrinkThumb"
+                    :title="drink.strDrink"
+                    :id="drink.idDrink"
+                />
             </div>
         </div>
     </div>
@@ -32,8 +31,9 @@
 
 <script>
 import Header from '@/components/Header.vue';
-import ViewGrid from '@/components/ViewGrid.vue';
-import ViewList from '@/components/ViewList.vue';
+import ViewGrid from '@/components/svg/ViewGrid.vue';
+import ViewList from '@/components/svg/ViewList.vue';
+import CardDrinks from '@/components/CardDrinks.vue';
 import axios from 'axios';
 
 export default {
@@ -41,6 +41,7 @@ export default {
         Header,
         ViewGrid,
         ViewList,
+        CardDrinks,
     },
 
     data() {
@@ -72,6 +73,10 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+.home {
+    font-family: 'Inter', sans-serif;
+}
+
 .brasil-word {
     color: #4094f7;
 }
@@ -89,14 +94,13 @@ export default {
 }
 
 .typography {
-    font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 32px;
+    margin: 8px 0px;
 }
 
 .result-message {
-    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 1.18rem;
     line-height: 32px;
@@ -143,41 +147,5 @@ export default {
     display: flex;
     justify-content: center;
     width: 100%;
-}
-
-.img-container {
-    margin: 0 auto;
-}
-
-.img-drinks {
-    width: 100%;
-    height: auto;
-}
-
-.descripition-card {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    border: 1px solid rgba(10, 23, 55, 0.1);
-    padding: 20px 0px 40px 20px;
-}
-
-.drink-name {
-    font-family: 'Inter', sans-serif;
-    font-weight: normal;
-    font-size: 0.95rem;
-    line-height: 24px;
-    letter-spacing: -0.006em;
-    color: #252c32;
-    padding: 4px;
-}
-
-.drink-id {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 1.1rem;
-    line-height: 24px;
-    letter-spacing: -0.014em;
-    color: #252c32;
 }
 </style>

@@ -9,16 +9,17 @@
                 </p>
             </div>
         </div>
-        <div class="github">
-            <p class="user-github">
-                <b-icon-github class="icon-git" /> {{ userGitHub }}
+        <div class="github-container">
+            <p class="github">
+                <Github /> <span class="user-github">{{ userGitHub }}</span>
             </p>
         </div>
     </header>
 </template>
 
 <script>
-import LocSVG from './LocIcon.vue';
+import LocSVG from './svg/LocIcon.vue';
+import Github from './svg/Github.vue';
 
 export default {
     data() {
@@ -29,6 +30,7 @@ export default {
 
     components: {
         LocSVG,
+        Github,
     },
 };
 </script>
@@ -44,7 +46,8 @@ export default {
     font-family: 'Inter', sans-serif;
 }
 
-.github {
+.github-container {
+    display: flex;
     align-self: center;
     margin-right: 20px;
 }
@@ -53,10 +56,12 @@ export default {
     margin-right: 10px;
 }
 
-.user-github {
+.github {
+    display: flex;
+    justify-content: space-between;
     border: 1px solid rgba(10, 23, 55, 0.1);
     border-radius: 5px;
-    padding: 7px 18px;
+    padding: 7px 16px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -65,6 +70,10 @@ export default {
     text-align: center;
     letter-spacing: -0.006em;
     color: #252c32;
+}
+
+.user-github {
+    padding-left: 8px;
 }
 
 .logo {
