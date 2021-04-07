@@ -84,7 +84,7 @@ export default {
 .top-container {
     display: flex;
     justify-content: space-between;
-    margin: 17px 82px;
+    margin: 1.2rem 4.5rem;
 }
 
 .typography-container {
@@ -104,7 +104,6 @@ export default {
     font-weight: 500;
     font-size: 1.18rem;
     line-height: 32px;
-    letter-spacing: -0.019em;
     color: #9aa6ac;
     margin-top: -10px;
 }
@@ -137,7 +136,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 1px 1px;
+    gap: 0px 1px;
     width: 55%;
     height: auto;
     justify-content: center;

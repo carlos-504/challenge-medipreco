@@ -49,7 +49,7 @@ export default {
 .github-container {
     display: flex;
     align-self: center;
-    margin-right: 20px;
+    margin-right: 1.1rem;
 }
 
 .icon-git {
@@ -62,13 +62,10 @@ export default {
     border: 1px solid rgba(10, 23, 55, 0.1);
     border-radius: 5px;
     padding: 7px 16px;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
     font-weight: normal;
     font-size: 0.9rem;
     line-height: 24px;
     text-align: center;
-    letter-spacing: -0.006em;
     color: #252c32;
 }
 
@@ -77,11 +74,9 @@ export default {
 }
 
 .logo {
-    font-family: 'Inter', sans-serif;
     margin-bottom: 0px;
     margin-top: 20px;
     letter-spacing: -0.014em;
-    font-style: normal;
     font-weight: 600;
     font-size: 1.1rem;
     line-height: 24px;
@@ -93,7 +88,6 @@ export default {
 
 .logo-container {
     text-align: left;
-    align-items: center;
     margin-left: 20px;
 }
 
@@ -103,12 +97,12 @@ export default {
 }
 
 .loc-icon {
-    margin-right: 10px;
-    margin-bottom: 5px;
+    margin-right: 0.7rem;
+    margin-bottom: 0.4rem;
     align-self: center;
 }
 
 .localization {
-    margin-top: 10px;
+    margin-top: 0.6rem;
 }
 </style>

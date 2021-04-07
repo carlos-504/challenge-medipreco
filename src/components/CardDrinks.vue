@@ -35,6 +35,7 @@ export default {
 
 <style>
 .img-container {
+    font-family: 'Inter', sans-serif;
     margin: 0 auto;
 }
 
@@ -48,26 +49,23 @@ export default {
     flex-direction: column;
     text-align: left;
     border: 1px solid rgba(10, 23, 55, 0.1);
+    border-top: none;
     padding: 20px 0px 40px 20px;
 }
 
 .drink-name {
-    font-family: 'Inter', sans-serif;
     font-weight: normal;
     font-size: 0.95rem;
-    line-height: 24px;
-    letter-spacing: -0.006em;
+    line-height: 1.5rem;
     color: #252c32;
     padding: 4px;
     text-decoration: none;
 }
 
 .drink-id {
-    font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
-    line-height: 24px;
-    letter-spacing: -0.014em;
+    line-height: 1.5rem;
     color: #252c32;
 }
 </style>

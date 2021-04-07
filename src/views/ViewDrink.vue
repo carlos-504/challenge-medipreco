@@ -46,23 +46,15 @@
                         <span class="btn-l">L</span>
                     </div>
                     <router-link to="/">
-                        <button class="btn-back">
-                            Voltar para tela inicial
-                        </button>
+                        <Button label="Voltar para o menu inicial" />
                     </router-link>
                     <div class="ingredients">
                         <span class="ingredient-label">Ingredientes</span>
-                        <span class="ingredient-item"
+                        <span
+                            class="ingredient-item"
+                            v-for="ingredient in ingredients"
                             ><ArrowIcon class="arrow-icon" />
-                            {{ drink.strIngredient1 }}</span
-                        >
-                        <span class="ingredient-item"
-                            ><ArrowIcon class="arrow-icon" />
-                            {{ drink.strIngredient2 }}</span
-                        >
-                        <span class="ingredient-item"
-                            ><ArrowIcon class="arrow-icon" />
-                            {{ drink.strIngredient3 }}</span
+                            {{ ...ingredient }}</span
                         >
                     </div>
                 </div>
@@ -74,17 +66,20 @@
 <script>
 import MenuToggle from '@/components/svg/MenuToggle.vue';
 import ArrowIcon from '@/components/svg/ArrowIcon.vue';
+import Button from '@/components/Button.vue';
 import axios from 'axios';
 
 export default {
     components: {
         MenuToggle,
         ArrowIcon,
+        Button,
     },
 
     data() {
         return {
-            drink: null,
+            drink: '',
+            ingredients: null,
         };
     },
 
@@ -98,6 +93,21 @@ export default {
                 );
 
                 this.drink = drink.data.drinks[0];
+                this.drink.strAlcoholic = 'Não-alcoolico';
+
+                const keys = Object.entries(this.drink);
+                const ingredientKeys = keys.filter((key) => {
+                    return /(strIngredient)\w+/g.test(key);
+                });
+
+                ingredientKeys.map((element) => element.shift());
+                const ingredientsValues = ingredientKeys.filter(
+                    (element, index) => {
+                        return element[0] != null;
+                    }
+                );
+
+                this.ingredients = ingredientsValues;
             } catch (err) {
                 console.log(err);
             }
@@ -241,26 +251,6 @@ export default {
     border-radius: 0px 6px 6px 0px;
 }
 
-.btn-back {
-    border: 0px;
-    padding: 8px 16px;
-    width: 23rem;
-    height: 2.5rem;
-    border-radius: 6px;
-    background: #4094f7;
-    font-weight: 600;
-    font-size: 14px;
-    color: #f6f8f9;
-}
-
-.btn-back:hover {
-    background: #2570c8;
-}
-
-.btn-back:active {
-    background: #4094f7;
-}
-
 .ingredients {
     display: flex;
     flex-direction: column;
@@ -273,7 +263,7 @@ export default {
     font-weight: normal;
     font-size: 14px;
     color: #252c32;
-    padding: 10px 0px;
+    padding: 8px 0px;
 }
 
 .ingredient-item {
