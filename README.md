@@ -1,4 +1,7 @@
-# app
+# Desafio medipreco
+```
+Projeto que consiste na construção de uma catálogo de bebidas e na exibição individual da bedida selecionada   
+```
 
 ## Project setup
 ```
